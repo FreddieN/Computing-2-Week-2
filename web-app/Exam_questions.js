@@ -27,6 +27,19 @@ const Exam_questions = {
  * @example shortest_word(["hello", "cat", "ok", "12345"]) // "ok";
  */
 Exam_questions.q1.shortest_word = function (word_array) {
+    var shortest = -1
+    var shortest_word = ""
+    word_array.forEach(element => {
+        if(element.length < shortest || shortest == -1) {
+            shortest = element.length
+            shortest_word = element
+        }
+    });
+    if(word_array.length != 0) {
+        return shortest_word
+    } else {
+        return undefined
+    }
 };
 
 /**
@@ -40,6 +53,9 @@ Exam_questions.q1.shortest_word = function (word_array) {
  * @example sum_of_numbers(["hello", "cat", 2, true, 17, undefined]) // 19;
  */
 Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
+    array_of_any_type = array_of_any_type.filter(value => /^-?\d+\.?\d*$/.test(value));
+    return array_of_any_type.reduce((partialSum, a) => partialSum + a, 0);
+
 };
 
 /**
@@ -64,6 +80,21 @@ Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
  *   // "never odd or even"
  */
 Exam_questions.q3.longest_palindrome = function (string_array) {
+    var longest_palindrome = undefined
+    var longest_palindrome_length = -1
+    string_array.forEach(element => {
+        var orig = element
+        element = element.trim(" ")
+        element = element.replace(/\s/g, '');
+        if(element.split("").reverse().join("") == element && element.length > longest_palindrome_length) {
+            longest_palindrome = orig
+            longest_palindrome_length = orig.length
+        }
+
+    })
+
+    return longest_palindrome
+
 };
 
 /**
@@ -78,6 +109,14 @@ Exam_questions.q3.longest_palindrome = function (string_array) {
  * @example perfect_squares(2, 16) // [4, 9, 16]
  */
 Exam_questions.q4.perfect_squares = function (a, b) {
+    var perfect_squares = []
+    for (let i = a; i <= b; i++) {
+        if(i > 0 && Math.sqrt(i) % 1 === 0){
+            perfect_squares.push(i)
+        }
+    }
+
+    return perfect_squares
 };
 
 /**
@@ -94,6 +133,11 @@ Exam_questions.q4.perfect_squares = function (a, b) {
  *   // {"numbers": [1, 3, 5, 6], "powers": [1, 9, 25, 36]}
  */
 Exam_questions.q5.power_object = function (numbers, exponent) {
+    var powers = []
+    numbers.forEach(element => {
+        powers.push(element**exponent)
+    })
+    return {"numbers": numbers, "powers": powers}
 };
 
 /**
@@ -112,6 +156,12 @@ Exam_questions.q5.power_object = function (numbers, exponent) {
  * @example missing_character("hello", "hellonn") // undefined
  */
 Exam_questions.q6.missing_character = function (short_string, long_string) {
+    var long_missing_end = long_string.slice(0, long_string.length-1)
+    if(long_missing_end == short_string) {
+        return long_string.slice(long_string.length-1, long_string.length)
+    } else {
+        return undefined
+    }
 };
 
 /**
