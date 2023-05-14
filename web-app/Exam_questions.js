@@ -157,7 +157,7 @@ Exam_questions.q5.power_object = function (numbers, exponent) {
  */
 Exam_questions.q6.missing_character = function (short_string, long_string) {
     var long_missing_end = long_string.slice(0, long_string.length-1)
-    if(long_missing_end == short_string) {
+    if(long_missing_end.length == short_string.length) {
         return long_string.slice(long_string.length-1, long_string.length)
     } else {
         return undefined
@@ -176,6 +176,14 @@ Exam_questions.q6.missing_character = function (short_string, long_string) {
  * @example even_digits(2, 27) // [2, 4, 6, 8, 20, 22, 24, 26]
  */
 Exam_questions.q7.even_digits = function (a, b) {
+    var even_results = []
+    for (let i = a; i <= b; i++) {
+        if(i % 2 === 0){
+            even_results.push(i)
+        }
+    }
+
+    return even_results
 };
 
 /**

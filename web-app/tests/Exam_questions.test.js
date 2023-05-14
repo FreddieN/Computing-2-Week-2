@@ -311,7 +311,17 @@ describe("Question 6", function () {
         "that is not included in the orignal string, " +
         "returns that character",
         function () {
-            throw new Error("Implement this test yourself.");
+            const short_string = "hello";
+            const long_string = "hellon";
+            const result = missing_character(short_string, long_string);
+            const expected = "n";
+            if (!R.equals(result, expected)) {
+                throw new Error(
+                    `For an input of ${short_string} and ${long_string} ` +
+                    `${JSON.stringify(result)} was returned,` +
+                    `when ${expected} was expected.`
+                );
+            }
         }
     );
 
@@ -322,17 +332,37 @@ describe("Question 6", function () {
         "that is included in the orignal string, " +
         "returns that character",
         function () {
-            throw new Error("Implement this test yourself.");
+            const short_string = "balloon";
+            const long_string = "balloonf";
+            const result = missing_character(short_string, long_string);
+            const expected = "f";
+            if (!R.equals(result, expected)) {
+                throw new Error(
+                    `For an input of ${short_string} and ${long_string} ` +
+                    `${JSON.stringify(result)} was returned,` +
+                    `when ${expected} was expected.`
+                );
+            }
         }
     );
 
     it(
         "Given a string and a character, " +
         "appending that character to the string and shuffling" +
-        "then passing the original and new string to missing_character",
+        "then passing the original and new string to missing_character" +
         "returns that character",
         function () {
-            throw new Error("Implement this test yourself.");
+            const short_string = "balloon";
+            const long_string = "oonballf";
+            const result = missing_character(short_string, long_string);
+            const expected = "f";
+            if (!R.equals(result, expected)) {
+                throw new Error(
+                    `For an input of ${short_string} and ${long_string} ` +
+                    `${JSON.stringify(result)} was returned,` +
+                    `when ${expected} was expected.`
+                );
+            }
         }
     );
 
@@ -340,7 +370,16 @@ describe("Question 6", function () {
         "Given two strings with lengths that differ by not exactly 1," +
         "undefined is always returned",
         function () {
-            throw new Error("Implement this test yourself.");
+            const short_string = "balloon";
+            const long_string = "oonbalf";
+            const result = missing_character(short_string, long_string);
+            if (!R.equals(result, undefined)) {
+                throw new Error(
+                    `For an input of ${short_string} and ${long_string} ` +
+                    `${JSON.stringify(result)} was returned,` +
+                    `when ${expected} was expected.`
+                );
+            }
         }
     );
 });
@@ -350,9 +389,14 @@ describe("Question 7", function () {
     it(
         "Define and implement your own tests for this question",
         function () {
-            throw new Error(
-                "Define and implement your own tests for this question"
-            );
+            const result = even_digits(2, 27);
+            if (!R.equals(result, [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26])) {
+                throw new Error(
+                    `For an input of 2 and 27 ` +
+                    `${JSON.stringify(result)} was returned,` +
+                    `when [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26] was expected.`
+                );
+            }
         }
     );
 });
