@@ -390,7 +390,7 @@ describe("Question 7", function () {
         "Define and implement your own tests for this question",
         function () {
             const result = even_digits(2, 27);
-            if (!R.equals(result, [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26])) {
+            if (!R.equals(result, [2,4,6,8,20,22,24,26])) {
                 throw new Error(
                     `For an input of 2 and 27 ` +
                     `${JSON.stringify(result)} was returned,` +
@@ -399,4 +399,35 @@ describe("Question 7", function () {
             }
         }
     );
+        it(
+                    "Returns even only digits for three digit numbers",
+                    function () {
+                        const result = even_digits(80, 240);
+                        const expected = [
+                            80,
+                            82,
+                            84,
+                            86,
+                            88,
+                            200,
+                            202,
+                            204,
+                            206,
+                            208,
+                            220,
+                            222,
+                            224,
+                            226,
+                            228,
+                            240
+                        ];
+                        if (!R.equals(result, expected)) {
+                            throw new Error(
+                                "The following digits were returned, " +
+                                JSON.stringify(result) +
+                                `which does not match the example result.`
+                            );
+                        }
+                    }
+                );
 });

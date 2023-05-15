@@ -178,7 +178,13 @@ Exam_questions.q6.missing_character = function (short_string, long_string) {
 Exam_questions.q7.even_digits = function (a, b) {
     var even_results = []
     for (let i = a; i <= b; i++) {
-        if(i % 2 === 0){
+        let valid = true
+        i.toString().split('').map(Number).forEach(element => {
+            if(element % 2 != 0) {
+                valid = false
+            }
+        })
+        if(valid) {
             even_results.push(i)
         }
     }
